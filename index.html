@@ -10,6 +10,47 @@
             
         }
 
+        const round = (you,opponent) => {
+            if(you == 'rock' && opponent == 'paper') {
+                console.log('Your opponent chose paper, You lose!');
+                return 2;
+            }
+            if(you == 'rock' && opponent == 'scissors') {
+                console.log('Your opponent chose scissors, You win!');
+                return 1;
+            }
+            if(you == 'rock' && opponent == 'rock') {
+                console.log('Your opponent chose the same, Tie!');
+                return 0;
+            }
+            if(you == 'paper' && opponent == 'rock') {
+                console.log('Your opponent chose rock, You win!');
+                return 1;
+            }
+            if(you == 'paper' && opponent == 'scissors') {
+                console.log('Your opponent chose scissors, You lose!');
+                return 2;
+            }
+            if(you == 'paper' && opponent == 'paper') {
+                console.log('Your opponent chose the same, Tie!');
+                return 0;
+            }
+            if(you == 'scissors' && opponent == 'rock') {
+                console.log('Your opponent chose rock, You lose!');
+                return 2;
+            }
+            if(you == 'scissors' && opponent == 'paper') {
+                console.log('Your opponent chose paper, you win!');
+                return 1;
+            }
+            if(you == 'scissors' && opponent == 'scissors') {
+                console.log('Your opponent chose the same, Tie!');
+                return 0;
+            }
+
+            
+        }
+
         let choose = prompt('Best of Three Rock Paper Scissors, press 1 to play');
 
         
