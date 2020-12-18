@@ -1,89 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <script>
-        
-        const weapons = ['rock','paper','scissors'];
-        
-        const computerPlay = () => {
-            let a = Math.floor(Math.random() * 3);
-            return weapons[a];
-            
-        }
-
-        const round = (you,opponent) => {
-            if(you == 'rock' && opponent == 'paper') {
-                console.log('Your opponent chose paper, You lose!');
-                return 2;
-            }
-            if(you == 'rock' && opponent == 'scissors') {
-                console.log('Your opponent chose scissors, You win!');
-                return 1;
-            }
-            if(you == 'rock' && opponent == 'rock') {
-                console.log('Your opponent chose the same, Tie!');
-                return 0;
-            }
-            if(you == 'paper' && opponent == 'rock') {
-                console.log('Your opponent chose rock, You win!');
-                return 1;
-            }
-            if(you == 'paper' && opponent == 'scissors') {
-                console.log('Your opponent chose scissors, You lose!');
-                return 2;
-            }
-            if(you == 'paper' && opponent == 'paper') {
-                console.log('Your opponent chose the same, Tie!');
-                return 0;
-            }
-            if(you == 'scissors' && opponent == 'rock') {
-                console.log('Your opponent chose rock, You lose!');
-                return 2;
-            }
-            if(you == 'scissors' && opponent == 'paper') {
-                console.log('Your opponent chose paper, you win!');
-                return 1;
-            }
-            if(you == 'scissors' && opponent == 'scissors') {
-                console.log('Your opponent chose the same, Tie!');
-                return 0;
-            }
-
-            
-        }
-
-        const game = () => {
-            let a = 0;
-            let b = 0;
-            
-            for(let i=0; i<3;i++) {
-                let hand = prompt('Your Opponent is ready! Choose what to play');
-                let c = round(hand,computerPlay());
-                if(c == 1) {
-                    a = a + 1;
-                    console.log('You ' + a);
-                    console.log('Opponent ' + b);
-                } else if (c == 2) {
-                    b = b + 1;
-                    console.log('You ' + a);
-                    console.log('Opponent ' + b);
-                } else if(c == 0) {
-                    i = i -1;
-                } if (a == 2) {
-                    return 'YOU WIN THE GAME!'
-                } else if (b== 2) {
-                    return 'YOU LOSE THE GAME!'
-                }
-            }
-        }
-
-        let choose = prompt('Best of Three Rock Paper Scissors, press 1 to play');
-        
-        if(choose == '1') {
-            console.log(game());
-        }
-    
-    </script>
+    <heade>
+        <link rel='stylesheet' type='text/css' href='style.css' />
+    </heade>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
     <body>
-        Thanks for playing!
+        <button id='play'>Play</button>
+        <div id='container'></div>
     </body>
+
+    <script src='code.js'></script>
 </html>

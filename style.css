@@ -1,0 +1,43 @@
+header h1 {
+    text-align: center;
+}
+
+#container {
+    display:flex;
+    justify-content: center;
+
+}
+
+.container-div {
+    display:flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items:center;
+    justify-content: center;
+    padding: 10px;
+    width: 25%;
+    height:auto;
+}
+
+#game-score {
+    display:flex;
+}
+
+#you {
+    margin-right: 10px;
+}
+
+#opp {
+    margin-left: 10px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#options button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
