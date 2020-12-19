@@ -45,6 +45,7 @@ const round = (you,opponent) => {
     
 }
 
+const weapons = ['rock','paper','scissors'];
 
 const play = document.querySelector('#play');
 const playAgain = document.createElement('button');
@@ -52,9 +53,32 @@ playAgain.textContent = 'Play Again';
 
 
 play.addEventListener('click',() => {
+
+    const logItWin = (count,winner,loser) => {
+        var aux = document.createElement('p');
+        aux.textContent = `Log ${count}: You win, ${winner} Beats ${loser}`
+        log.appendChild(aux);
+    }
+
+    const logItLose = (count,winner,loser) => {
+        var aux = document.createElement('p');
+        aux.textContent = `Log ${count}: You Lose, ${winner} Beats ${loser}`
+        log.appendChild(aux);
+    }
+
+    const logItDraw = (count) => {
+        var aux = document.createElement('p');
+        aux.textContent = `Log ${count}: It's a Draw`;
+        log.appendChild(aux);
+    }
+
+
+
     let youPoints = 0;
     let oppPoints = 0;
-
+    let i = 0;
+    
+    const log = document.querySelector('#log');
     const title = document.querySelector('#title');
     title.textContent = 'Rock Paper Scissors';
     play.parentNode.removeChild(play);
@@ -94,112 +118,124 @@ play.addEventListener('click',() => {
     gameDiv.appendChild(options);
 
     container.appendChild(gameDiv);
-    
+        
     rock.addEventListener('click', () => {
         let rockResult = round(1,computerPlay());
         if(rockResult == 1) {
+            logItWin(i,weapons[0],weapons[2]);
             youPoints = youPoints + 1;
             document.getElementById('you').textContent= youPoints;
             document.getElementById('you').setAttribute('style','color:green;')
             document.getElementById('opp').setAttribute('style','color:red;')
+            i = i + 1;
         } else if(rockResult == 2) {
+            logItLose(i,weapons[1],weapons[0]);
             document.getElementById('opp').setAttribute('style','color:green;')
             document.getElementById('you').setAttribute('style','color:red;')
             oppPoints = oppPoints + 1;
             document.getElementById('opp').textContent= oppPoints;
+            i = i+ 1;
         } else {
             document.getElementById('opp').setAttribute('style','color:black;')
             document.getElementById('you').setAttribute('style','color:black;')
+            logItDraw(i);
+            i = i + 1;
         }
         if(oppPoints == 5) {
             document.getElementById('title').textContent = 'You Lose!';
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').textContent= oppPoints;
             options.parentNode.removeChild(options);
-            container.appendChild(play);
-            play.textContent ='Play Again'
-            gameDiv.parentNode.removeChild(gameDiv);
+            log.style.height = 'auto';
+            log.style['overflow-y'] = 'hidden';
         }
         if(youPoints == 5) {
             document.getElementById('title').textContent = 'You Win!';
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').textContent= oppPoints;
             options.parentNode.removeChild(options);
-            container.appendChild(play);
-            play.textContent ='Play Again'
-            gameDiv.parentNode.removeChild(gameDiv);
+            log.style.height = 'auto';
+            log.style['overflow-y'] = 'hidden';
         }
     })
 
     paper.addEventListener('click', () => {
         let paperResult = round(2,computerPlay());
         if(paperResult == 1) {
+            logItWin(i,weapons[1],weapons[0]);
             youPoints = youPoints + 1;
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').setAttribute('style','color:red;')
             document.getElementById('you').setAttribute('style','color:green;')
+            i = i + 1
         } else if(paperResult == 2) {
+            logItLose(i,weapons[2],weapons[1]);
             oppPoints = oppPoints + 1;
             document.getElementById('opp').setAttribute('style','color:green;')
             document.getElementById('you').setAttribute('style','color:red;')
             document.getElementById('opp').textContent= oppPoints;
+            i = i + 1;
         } else {
+            logItDraw(i);
             document.getElementById('opp').setAttribute('style','color:black;')
             document.getElementById('you').setAttribute('style','color:black;')
+            i = i + 1
         }
         if(oppPoints == 5) {
             document.getElementById('title').textContent = 'You Lose!';
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').textContent= oppPoints;
             options.parentNode.removeChild(options);
-            container.appendChild(play);
-            play.textContent ='Play Again'
-            gameDiv.parentNode.removeChild(gameDiv);
+            log.style.height = 'auto';
+            log.style['overflow-y'] = 'hidden';
         }
         if(youPoints == 5) {
             document.getElementById('title').textContent = 'You Win!';
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').textContent= oppPoints;
             options.parentNode.removeChild(options);
-            container.appendChild(play);
-            play.textContent ='Play Again'
-            gameDiv.parentNode.removeChild(gameDiv);
+            log.style.height = 'auto';
+            log.style['overflow-y'] = 'hidden';
         }
     })
 
     scissors.addEventListener('click', () => {
         let scissorsResult = round(3,computerPlay());
         if(scissorsResult == 1) {
+            logItWin(i,weapons[2],weapons[1]);
             youPoints = youPoints + 1;
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').setAttribute('style','color:red;')
             document.getElementById('you').setAttribute('style','color:green;')
+            i = i + 1;
         } else if(scissorsResult == 2) {
+            logItLose(i,weapons[0],weapons[2]);
             oppPoints = oppPoints + 1;
             document.getElementById('opp').setAttribute('style','color:green;')
             document.getElementById('you').setAttribute('style','color:red;')
             document.getElementById('opp').textContent= oppPoints;
+            i = i + 1;
         } else {
+            logItDraw(i);
             document.getElementById('opp').setAttribute('style','color:black;')
             document.getElementById('you').setAttribute('style','color:black;')
+            i = i + 1;
         }
         if(oppPoints == 5) {
             document.getElementById('title').textContent = 'You Lose!';
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').textContent= oppPoints;
             options.parentNode.removeChild(options);
-            container.appendChild(play);
-            play.textContent ='Play Again'
-            gameDiv.parentNode.removeChild(gameDiv);
+            log.style.height = 'auto';
+            log.style['overflow-y'] = 'hidden';
         }
         if(youPoints == 5) {
             document.getElementById('title').textContent = 'You Win!';
             document.getElementById('you').textContent= youPoints;
             document.getElementById('opp').textContent= oppPoints;
             options.parentNode.removeChild(options);
-            container.appendChild(play);
-            play.textContent ='Play Again'
-            gameDiv.parentNode.removeChild(gameDiv);
+            log.style.height = 'auto';
+            log.style['overflow-y'] = 'hidden';
         }
     })
 
