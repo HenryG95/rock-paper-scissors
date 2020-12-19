@@ -45,35 +45,30 @@ const round = (you,opponent) => {
     
 }
 
-const weapons = ['rock','paper','scissors'];
+const logItWin = (count,winner,loser) => {
+    var aux = document.createElement('p');
+    aux.textContent = `Log ${count}: You win!, ${winner} Beats ${loser}.`
+    log.appendChild(aux);
+}
+
+const logItLose = (count,winner,loser) => {
+    var aux = document.createElement('p');
+    aux.textContent = `Log ${count}: You Lose!, ${winner} Beats ${loser}.`
+    log.appendChild(aux);
+}
+
+const logItDraw = (count) => {
+    var aux = document.createElement('p');
+    aux.textContent = `Log ${count}: It's a Draw!`;
+    log.appendChild(aux);
+}
+
+
+const weapons = ['Rock','Paper','Scissors'];
 
 const play = document.querySelector('#play');
-const playAgain = document.createElement('button');
-playAgain.textContent = 'Play Again';
-
 
 play.addEventListener('click',() => {
-
-    const logItWin = (count,winner,loser) => {
-        var aux = document.createElement('p');
-        aux.textContent = `Log ${count}: You win, ${winner} Beats ${loser}`
-        log.appendChild(aux);
-    }
-
-    const logItLose = (count,winner,loser) => {
-        var aux = document.createElement('p');
-        aux.textContent = `Log ${count}: You Lose, ${winner} Beats ${loser}`
-        log.appendChild(aux);
-    }
-
-    const logItDraw = (count) => {
-        var aux = document.createElement('p');
-        aux.textContent = `Log ${count}: It's a Draw`;
-        log.appendChild(aux);
-    }
-
-
-
     let youPoints = 0;
     let oppPoints = 0;
     let i = 0;
